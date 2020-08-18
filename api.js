@@ -52,8 +52,6 @@ app.delete('/deletestudents', async function(req,res){
     await students.deleteMany()
     res.send()
 })
-
-
 // ------------------------ routes GROUP --------------------->
 app.get('/getgroup', async function(req,res) {
  var data = await group.find().toArray()
