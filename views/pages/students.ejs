@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') %>
+</head>
+<body>
+  <header>
+    <%- include ('../partials/header') %>
+  </header>
+  <main>
+    <section id="list">
+     <h3>List of students</h3>
+     <ul>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+      <li>name</li>
+    </ul>
+    </section>
+    <section id="add">
+      <form method="POST" action="/addStudent">
+        <label for="addName"><b>Add student:</b> </label>
+        <input type="text" id="addName" name="name">
+        <input type="submit" value="Add student">
+      </form>
+      <form method="POST" action="/deleteStudent">
+        <label for="sname"><b>Delete student:</b> </label>
+        <select name="dname">
+          <option value="name1">name</option>
+          <option value="name2">name2</option>
+        </select>
+        <input type="submit" value="Delete student">
+      </form>
+    </section>
+    <footer>
+      <%- include ('../partials/footer') %>
+    </footer>
+  </main>
+</body>
+</html>

@@ -61,6 +61,12 @@ header{
       color: #A6DDBB;
       background: #454851;
     }
+    a:hover{ transform: scale(.97); }
+    .active{
+      color: #EBEBEB;
+      border: 2px solid #EBEBEB;
+    }
+    .active:hover{transform: scale(1);}
   }
 }
 
@@ -76,15 +82,14 @@ main{
     cursor: pointer;
     color: #fff;
     border: 1px solid transparent;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     outline: none;
   }
-  input[type="text"]{
-    padding: .2rem 0;
-    border: 1px solid rgba(83, 84, 87, .3);
-    border-radius: 4px;
+  input[type="text"], input[type="date"], select{
+    padding: .2rem 5px;
+    border: 1px solid rgba(129, 177, 132, .4);
+    border-radius: 6px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.31); 
-  }
+  } 
   /////////////////////home//////////////////////////
   #wlcMsg{
     @include displayFlexColum;
@@ -131,7 +136,7 @@ main{
     }
   }
   #add{
-    padding: 3rem 0;
+    padding: 1rem 0;
     background: #EBEBEB;
     form{
       @include displayFlexRow;

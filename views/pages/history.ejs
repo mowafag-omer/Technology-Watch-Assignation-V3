@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../public/css/style.css">
+  <%- include ('../partials/head') %>
 </head>
 <body>
   <header>
-    <h1>My Tech-watch Assignator</h1>
-    <nav>  
-      <a href="">Home</a>
-      <a href="">Student list</a>
-      <a href="">Tech-watch Assignation</a>
-      <a href="">History Tech-watch</a>
+    <%- include ('../partials/header') %>
     </nav>
   </header>
   <main>
     <section id="nextTech" style="background: #fff;">
-      <h4>Next tech-Watch</h4>
+      <h4>Next Tech-Watch</h4>
       <div>
         <h4>Base de données relationnelles / SQL</h4>
         <p>
@@ -59,8 +51,7 @@
       </div>
     </section>
     <footer>
-      <p>Copyright: Mustapha & Mowafag</p>
-     <p><span>korvin.meurice@gmail.com</span></p>
+      <%- include ('../partials/footer') %>
     </footer>
   </main>
 </body>

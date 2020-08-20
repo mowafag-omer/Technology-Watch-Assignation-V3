@@ -35,6 +35,21 @@ header nav a {
   background: #454851;
 }
 
+header nav a:hover {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+header nav .active {
+  color: #EBEBEB;
+  border: 2px solid #EBEBEB;
+}
+
+header nav .active:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,17 +76,13 @@ main input[type="submit"] {
   cursor: pointer;
   color: #fff;
   border: 1px solid transparent;
-  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
   outline: none;
 }
 
-main input[type="text"] {
-  padding: .2rem 0;
-  border: 1px solid rgba(83, 84, 87, 0.3);
-  border-radius: 4px;
+main input[type="text"], main input[type="date"], main select {
+  padding: .2rem 5px;
+  border: 1px solid rgba(129, 177, 132, 0.4);
+  border-radius: 6px;
   -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.31);
           box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.31);
 }
@@ -242,7 +253,7 @@ main #list ul {
 }
 
 main #add {
-  padding: 3rem 0;
+  padding: 1rem 0;
   background: #EBEBEB;
 }
 

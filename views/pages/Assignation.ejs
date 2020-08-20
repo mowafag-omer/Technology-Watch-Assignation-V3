@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../public/css/style.css">
+  <%- include ('../partials/head') %>
 </head>
 <body>
   <header>
-    <h1>My Tech-watch Assignator</h1>
-    <nav>  
-      <a href="">Home</a>
-      <a href="">Student list</a>
-      <a href="">Tech-watch Assignation</a>
-      <a href="">History Tech-watch</a>
-    </nav>
+    <%- include ('../partials/header') %>
   </header>
   <main>
     <section id="nextTech" style="background: #fff;">
@@ -35,19 +26,18 @@
       </div>
     </section>
     <section id="addTech">
-      <form action="">
+      <form method="POST" action="/createGroupe">
         <label for="sbj"><b>Subject</b> </label>
-        <input type="text" id="sbj">
+        <input type="text" name="subj" id="sbj">
         <label for="ddln"><b>Deadline</b> </label>
-        <input type="text" id="ddln">
+        <input type="date" name="dline" id="ddln">
         <label for="stdtNum"><b>Number students</b> </label>
-        <input type="text" id="stdtNum">
+        <input type="text" name="mmbr" id="stdtNum">
         <input type="submit" value="Create Tech-watch">
       </form>
     </section>
     <footer>
-      <p>Copyright: Mustapha & Mowafag</p>
-     <p><span>korvin.meurice@gmail.com</span></p>
+      <%- include ('../partials/footer') %>
     </footer>
   </main>
 </body>
