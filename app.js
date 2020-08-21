@@ -59,7 +59,7 @@ app.post('/addStudent', async (req, res) => {
     sbjGroup = [...names]
   }
 
-  await updateStudent(sbjGroupmap.map(elm => elm._id), false)
+  await updateStudent(sbjGroup.map(elm => elm._id), false)
 
   await fetch('http://localhost:3001/addTechWatch' ,{
     method: 'post',
