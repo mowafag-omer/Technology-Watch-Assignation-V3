@@ -32,7 +32,8 @@ async function group(){
     .put('/updateStudents', async (req,res) => {
       if(req.body.reset == false){
         for(const obj in req.body.objects){
-          await students.updateOne(req.body.objects[obj], {$set: {selected: true}})
+          console.log(req.body.objects[obj]);
+          // await students.updateOne(req.body.objects[obj], {$set: {selected: true}})
         }
       } else {
         await students.updateMany({}, {$set: {selected: false}})
