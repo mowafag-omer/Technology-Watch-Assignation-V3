@@ -29,7 +29,7 @@ app.post('/addStudent', async (req, res) => {
   })
   res.redirect('/students')
 })
-.post('/deleteStudent', async (req, res) => {
+.post('/rs', async (req, res) => {
   await fetch('http://localhost:3001/deleteStudents' ,{
     method: 'delete',
     body: JSON.stringify(req.body),
@@ -42,7 +42,7 @@ app.post('/addStudent', async (req, res) => {
   let names = [...students].filter(elm => elm.selected === false && elm)
   const members = req.body.mmbr
   let sbjGroup = []
-  
+
   if(names.length == 0){
     await updateStudent(sbjGroup, true)
     students = await studentsData()
@@ -50,7 +50,7 @@ app.post('/addStudent', async (req, res) => {
   } 
 
   if(names.length >= members){
-    for(let i in members){
+    for(let i=0; i < members; i++){
       const random = names[Math.floor(Math.random() * names.length)]
       sbjGroup.push(random)
       names.splice(names.indexOf(random), 1)
@@ -58,7 +58,7 @@ app.post('/addStudent', async (req, res) => {
   } else {
     sbjGroup = [...names]
   }
-  
+
   await updateStudent(sbjGroup, false)
 
   await fetch('http://localhost:3001/addTechWatch' ,{
