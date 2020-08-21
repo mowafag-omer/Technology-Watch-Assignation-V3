@@ -30,20 +30,22 @@ async function group(){
       res.send()
     })
     .put('/updateStudents', async (req,res) => {
+      console.log(req.body.reset);
       if(req.body.reset == false){
         for(const obj in req.body.objects){
+          console.log('one');
           await students.updateOne({_id: ObjectId(req.body.objects[obj])}, {$set: {selected: true}})
         }
       } else {
+        console.log('many');
         await students.updateMany({}, {$set: {selected: false}})
       }  
       res.send()
     })
     // ------------------------ routes techWatch --------------------->
-    .get('/getgroup', async function(req,res) {
+    .get('/getTechWatch', async function(req,res) {
     var data = await techWatch.find().toArray()
     res.send(data)
-
     })
     .post('/addTechWatch', async function(req,res) {
       techWatch.insertOne(req.body)

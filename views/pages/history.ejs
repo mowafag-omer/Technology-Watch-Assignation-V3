@@ -11,44 +11,27 @@
   <main>
     <section id="nextTech" style="background: #fff;">
       <h4>Next Tech-Watch</h4>
-      <div>
-        <h4>Base de données relationnelles / SQL</h4>
-        <p>
-          <span><b>Students affiliate:</b> Hakim - - - Camille</span>
-          <span><b>When:</b> Thursday 23 Jully</span>
-        </p>
-      </div>
-      <div>
-        <h4>Classes (ES6)</h4>
-        <p>
-          <span><b>Students affiliate: </b>Arthur - - - Fatima</span>
-          <span><b>When: </b>Thursday 23 Jully</span>
-        </p>
-      </div>
+      <% next.forEach(function(tech){ %>
+        <div>
+          <h4><%= tech.subject %></h4>
+          <p>
+            <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+            <span><b>When:</b> <%= tech.deadline %></span>
+          </p>
+        </div>
+      <% }) %>
     </section>
     <section id="prevTech">
       <h4>Previous Tech-watch</h4>
-      <div>
-        <h4>Base de données relationnelles / SQL</h4>
-        <p>
-          <span><b>Students affiliate:</b> Hakim - - - Camille</span>
-          <span><b>When:</b> Thursday 23 Jully</span>
-        </p>
-      </div>
-      <div>
-        <h4>Classes (ES6)</h4>
-        <p>
-          <span><b>Students affiliate: </b>Arthur - - - Fatima</span>
-          <span><b>When: </b>Thursday 23 Jully</span>
-        </p>
-      </div>
-      <div>
-        <h4>Classes (ES6)</h4>
-        <p>
-          <span><b>Students affiliate: </b>Arthur - - - Fatima</span>
-          <span><b>When: </b>Thursday 23 Jully</span>
-        </p>
-      </div>
+      <% prev.forEach(function(tech){ %>
+        <div>
+          <h4><%= tech.subject %></h4>
+          <p>
+            <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+            <span><b>When:</b> <%= tech.deadline %></span>
+          </p>
+        </div>
+      <% }) %>
     </section>
     <footer>
       <%- include ('../partials/footer') %>

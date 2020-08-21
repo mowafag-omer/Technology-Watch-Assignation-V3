@@ -13,6 +13,11 @@ const studentsData = async () => {
   return await fetchedStdn.json()
 }
 
+const techWatchsData = async () => {
+  const fetchedTech = await fetch('http://localhost:3001/getTechWatch')
+  return await fetchedTech.json()
+}
+
 const updateStudent = async (obj, rst) => {
   await fetch('http://localhost:3001/updateStudents', {
     method: 'put',
@@ -29,7 +34,7 @@ app.post('/addStudent', async (req, res) => {
   })
   res.redirect('/students')
 })
-.post('/rs', async (req, res) => {
+.post('/deleteStudent', async (req, res) => {
   await fetch('http://localhost:3001/deleteStudents' ,{
     method: 'delete',
     body: JSON.stringify(req.body),
@@ -75,19 +80,35 @@ app.post('/addStudent', async (req, res) => {
 /*---------------pages rendering-------------------------*/
 
 app.get('/', async (req, res) => {
-  let data = await studentsData()
-  data = data.filter(elm => elm.selected === false && elm)
-  res.render('pages/index', {data: data, title: 'home'})
+  const tdata = await techWatchsData()
+  let sdata = await studentsData()
+  sdata = sdata.filter(elm => elm.selected === false && elm)
+  res.render('pages/index', {data: sdata, techData: tdata, title: 'home'})
 })
 .get('/students', async (req, res) => {
   const data = await studentsData()
   res.render('pages/students', {data: data, title: 'students'})
 })
-.get('/assignation', (req, res) => {
-  res.render('pages/assignation', {title: 'assignation'})
+.get('/assignation', async (req, res) => { 
+  const data = await techWatchsData()
+  res.render('pages/assignation', {techData: data, title: 'assignation'})
 })
-.get('/history', (req, res) => {
-  res.render('pages/history', {title: 'history'})
+.get('/history', async (req, res) => {
+  const tdata = await techWatchsData()
+  let nextTech = [], prevTech = []
+  tdata.forEach(element => {
+    const todayDate = new Date(); //Today Date    
+    const dateOne = new Date(element.deadline);    
+    if(todayDate > dateOne){    
+      prevTech.push(element)
+    }else {    
+      nextTech.push(element)
+    }    
+  })
+  // console.log(next);
+  // console.log('------------------------');
+  // console.log(prev);
+  res.render('pages/history', {next: nextTech, prev: prevTech, title: 'history'})
 })
 
 app.listen(8080)

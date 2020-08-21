@@ -10,20 +10,15 @@
   <main>
     <section id="nextTech" style="background: #fff;">
       <h4>Next tech-Watch</h4>
-      <div>
-        <h4>Base de données relationnelles / SQL</h4>
-        <p>
-          <span><b>Students affiliate:</b> Hakim - - - Camille</span>
-          <span><b>When:</b> Thursday 23 Jully</span>
-        </p>
-      </div>
-      <div>
-        <h4>Classes (ES6)</h4>
-        <p>
-          <span><b>Students affiliate: </b>Arthur - - - Fatima</span>
-          <span><b>When: </b>Thursday 23 Jully</span>
-        </p>
-      </div>
+      <% techData.forEach(function(tech){ %>
+        <div>
+          <h4><%= tech.subject %></h4>
+          <p>
+            <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+            <span><b>When:</b> <%= tech.deadline %></span>
+          </p>
+        </div>
+      <% }) %>
     </section>
     <section id="addTech">
       <form method="POST" action="/createGroupe">
