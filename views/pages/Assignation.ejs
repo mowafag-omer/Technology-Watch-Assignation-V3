@@ -28,11 +28,11 @@
     <section id="addTech">
       <form method="POST" action="/createGroupe">
         <label for="sbj"><b>Subject</b> </label>
-        <input type="text" name="subj" id="sbj">
+        <input type="text" name="subj" id="sbj" required>
         <label for="ddln"><b>Deadline</b> </label>
-        <input type="date" name="dline" id="ddln">
+        <input type="date" name="dline" id="ddln" required>
         <label for="stdtNum"><b>Number students</b> </label>
-        <input type="text" name="mmbr" id="stdtNum">
+        <input type="number" name="mmbr" id="stdtNum" required>
         <input type="submit" value="Create Tech-watch">
       </form>
     </section>

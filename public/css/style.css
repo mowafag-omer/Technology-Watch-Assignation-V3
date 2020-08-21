@@ -79,7 +79,7 @@ main input[type="submit"] {
   outline: none;
 }
 
-main input[type="text"], main input[type="date"], main select {
+main input[type="text"], main input[type="date"], main input[type="number"], main select {
   padding: .2rem 5px;
   border: 1px solid rgba(129, 177, 132, 0.4);
   border-radius: 6px;
@@ -198,6 +198,9 @@ main #students ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   height: 30vh;

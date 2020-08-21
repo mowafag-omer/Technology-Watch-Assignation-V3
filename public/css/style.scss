@@ -84,7 +84,7 @@ main{
     border: 1px solid transparent;
     outline: none;
   }
-  input[type="text"], input[type="date"], select{
+  input[type="text"], input[type="date"], input[type="number"], select{
     padding: .2rem 5px;
     border: 1px solid rgba(129, 177, 132, .4);
     border-radius: 6px;
@@ -112,6 +112,7 @@ main{
     h4{margin: 1.3rem 0;}
     ul{
       @include displayFlexColum();
+      align-items: flex-start;
       flex-wrap: wrap;
       height: 30vh;
       list-style: none;
@@ -130,6 +131,7 @@ main{
     ul{
       @include card;
       @include displayFlexColum();
+      // align-items: flex-start;
       flex-wrap: wrap;
       height: 20vh;
       list-style: none;

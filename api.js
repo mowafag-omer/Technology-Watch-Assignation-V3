@@ -1,7 +1,6 @@
   
-const express = require('express')
-// const { Router } = require('express')
-var MongoClient = require('mongodb').MongoClient;
+const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
 const app = express()
 
 app.use (express.json())
@@ -13,7 +12,9 @@ async function group(){
     await client.connect()
     const dbo = client.db('assignator')
     const students = await dbo.collection('student')
-    const group = await  dbo.collection('group')
+    const techWatch = await dbo.collection('techWatch')
+
+    // ------------ routes STUDENTS --------------------------->
 
     app.get('/getstudents', async (req, res) => {
       var data = await students.find().toArray()
@@ -23,36 +24,39 @@ async function group(){
       students.insertOne(req.body)
       res.send()
     })
+    .delete('/deleteStudents', async (req,res) => {
+      await students.deleteOne({_id: ObjectId(req.body.dname)})
+      res.send()
+    })
+    .put('/updateStudents', async (req,res) => {
+      if(req.body.reset == false){
+        for(const obj in req.body.objects){
+          await students.updateOne(obj, {$set: {selected: true}})
+        }
+      } else {
+        await students.updateMany({selected: true}, {$set: {selected: false}})
+      }  
+      res.send()
+    })
+    // ------------------------ routes techWatch --------------------->
+    .get('/getgroup', async function(req,res) {
+    var data = await techWatch.find().toArray()
+    res.send(data)
 
+    })
+    .post('/addTechWatch', async function(req,res) {
+      techWatch.insertOne(req.body)
+      res.send()
+    })
+    .delete('/deletetechWatch', async function(req,res){
+        await techWatch.deleteMany()
+        res.send()
+    })
+    
   } catch(err) {
     console.log(err)
   }
 }
 group()
-
-// ------------ routes STUDENTS --------------------------->
-
-
-app.delete('/deletestudents', async (req,res) => {
-    await students.deleteMany()
-    res.send()
-})
-
-// ------------------------ routes GROUP --------------------->
-app.get('/getgroup', async function(req,res) {
- var data = await group.find().toArray()
- res.send(data)
-
-});
-
-app.post('/addgroup', async function(req,res) {
-    group.inserOne(req.body)
-    res.send()
-})
-
-app.delete('/deletegroup', async function(req,res){
-    await group.deleteMany()
-    res.send()
-})
 
 app.listen(3001);
