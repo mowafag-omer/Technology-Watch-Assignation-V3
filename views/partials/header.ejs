@@ -1,7 +1,18 @@
 <h1>My Tech-watch Assignator</h1>
 <nav>  
-  <a href="/" class="active">Home</a>
-  <a href="/students">Student list</a>
-  <a href="/assignation">Tech-watch Assignation</a>
-  <a href="/history">History Tech-watch</a>
+  <% if(title == 'home') { %> 
+    <a href="/" class="active">Home</a>
+  <% } else { %> <a href="/">Home</a> <% } %>
+ 
+  <% if(title == 'students') { %> 
+    <a href="/students" class="active">Student list</a>
+  <% } else { %> <a href="/students">Student list</a> <% } %>
+
+  <% if(title == 'assignation') { %> 
+    <a href="/assignation" class="active">Tech-watch Assignation</a>
+  <% } else { %> <a href="/assignation">Tech-watch Assignation</a> <% } %>
+
+  <% if(title == 'history') { %> 
+    <a href="/history" class="active">History Tech-watch</a>
+  <% } else { %> <a href="/history">History Tech-watch</a> <% } %>  
 </nav>

@@ -9,7 +9,7 @@
   </header>
   <main>
     <section id="nextTech" style="background: #fff;">
-      <h4>Next tech-Watch</h4>
+      <h4>Next Tech-Watch</h4>
       <% techData.forEach(function(tech){ %>
         <div>
           <h4><%= tech.subject %></h4>
@@ -22,11 +22,11 @@
     </section>
     <section id="addTech">
       <form method="POST" action="/createGroupe">
-        <label for="sbj"><b>Subject</b> </label>
+        <label for="sbj"><b>Subject:</b> </label>
         <input type="text" name="subj" id="sbj" required>
-        <label for="ddln"><b>Deadline</b> </label>
+        <label for="ddln"><b>Deadline:</b> </label>
         <input type="date" name="dline" id="ddln" required>
-        <label for="stdtNum"><b>Number students</b> </label>
+        <label for="stdtNum"><b>Number students:</b> </label>
         <input type="number" name="mmbr" id="stdtNum" required>
         <input type="submit" value="Create Tech-watch">
       </form>

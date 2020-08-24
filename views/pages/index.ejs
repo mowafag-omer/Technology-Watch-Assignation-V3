@@ -16,9 +16,9 @@
           had already assist; see the list of students availaible for do a tech-watch; a page for create the next tech-watch.</p>
           <p>Don’t be shy and try to go on diverses part of the website !</p>
     </section>
-    <section id="nextTech" style="overflow-y: scroll; max-height: 40vh;">
+    <section id="nextTech">
       <% techData.forEach(function(tech){ %>
-        <div style="min-height: 15vh;">
+        <div>
           <h4><%= tech.subject %></h4>
           <p>
             <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>

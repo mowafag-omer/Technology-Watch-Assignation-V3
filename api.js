@@ -1,7 +1,7 @@
   
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
-const { ObjectID, ObjectId } = require('bson');
+const { ObjectId } = require('bson');
 const app = express()
 
 app.use (express.json())
@@ -12,13 +12,12 @@ async function group(){
   try {
     await client.connect()
     const dbo = client.db('assignator')
-    const students = await dbo.collection('student')
-    const techWatch = await dbo.collection('techWatch')
+    const students = dbo.collection('student')
+    const techWatch = dbo.collection('techWatch')
 
-    // ------------ routes STUDENTS --------------------------->
-
+    //////////////////////// students ////////////////////////
     app.get('/getstudents', async (req, res) => {
-      var data = await students.find().toArray()
+      const data = await students.find().toArray()
       res.send(data)
     })
     .post('/addstudents', (req,res) => {
@@ -30,36 +29,30 @@ async function group(){
       res.send()
     })
     .put('/updateStudents', async (req,res) => {
-      console.log(req.body.reset);
       if(req.body.reset == false){
         for(const obj in req.body.objects){
-          console.log('one');
           await students.updateOne({_id: ObjectId(req.body.objects[obj])}, {$set: {selected: true}})
         }
       } else {
-        console.log('many');
         await students.updateMany({}, {$set: {selected: false}})
       }  
       res.send()
     })
-    // ------------------------ routes techWatch --------------------->
-    .get('/getTechWatch', async function(req,res) {
-    var data = await techWatch.find().toArray()
+    //////////////////////// techWatch ////////////////////////
+    .get('/getTechWatch', async (req,res) => {
+    const data = await techWatch.find().toArray()
     res.send(data)
     })
-    .post('/addTechWatch', async function(req,res) {
+    .post('/addTechWatch', async (req,res) => {
       techWatch.insertOne(req.body)
       res.send()
     })
-    .delete('/deletetechWatch', async function(req,res){
+    .delete('/deletetechWatch', async (req,res) => {
         await techWatch.deleteMany()
         res.send()
     })
-    
-  } catch(err) {
-    console.log(err)
-  }
+  } catch(err) { console.log(err) }
 }
 group()
 
-app.listen(3001);
+app.listen(3001)

@@ -131,10 +131,26 @@ main{
     ul{
       @include card;
       @include displayFlexColum();
-      // align-items: flex-start;
-      flex-wrap: wrap;
-      height: 20vh;
+      width: 40vw;
+      align-items: center;
+      // flex-wrap: wrap;
+      height: 30vh;
       list-style: none;
+      overflow-y: scroll;
+      li{
+        min-width: 100%;
+        border-bottom: .04px solid #495145;
+        line-height: 2rem;
+        text-align: center;
+      }
+    }
+    ul::-webkit-scrollbar {
+      width: .3em;
+    }
+    ul::-webkit-scrollbar-thumb {
+      background-color: #454851;
+      border-radius: 5px;
+      outline: 1px solid slategrey;
     }
   }
   #add{

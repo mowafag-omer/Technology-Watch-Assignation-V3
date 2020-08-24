@@ -249,10 +249,28 @@ main #list ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  height: 20vh;
+  width: 40vw;
+  align-items: center;
+  height: 30vh;
   list-style: none;
+  overflow-y: scroll;
+}
+
+main #list ul li {
+  min-width: 100%;
+  border-bottom: .04px solid #495145;
+  line-height: 2rem;
+  text-align: center;
+}
+
+main #list ul::-webkit-scrollbar {
+  width: .3em;
+}
+
+main #list ul::-webkit-scrollbar-thumb {
+  background-color: #454851;
+  border-radius: 5px;
+  outline: 1px solid slategrey;
 }
 
 main #add {
