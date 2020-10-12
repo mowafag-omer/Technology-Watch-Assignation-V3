@@ -102,13 +102,13 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 ```
 <br><br>
 
-### Tech-Watch History
+### Tech-Watch
 
 - Tech watch assignation page (Assignation.ejs) display all the next tech watch registered in the first section. This form is composed by three fields. First one is the subject of the tech-watch; second one the deadline and last one the number of students they will participate to this tech-watch.
 
-<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602543326000.png" width="70%" height="70%">
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602541752.png" width="70%" height="70%">
 
-- Display all the next tech watch
+- Display all next tech-watchs
 
 ``` 
 <section id="nextTech">
