@@ -12,6 +12,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 ## contents
 * [Home](#Home)
+### Client-side
 * [Client-side](#Client-side)
 * [Server-side](#Client-side)
 <br><br>
@@ -103,7 +104,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 - The student list page displays an array with the name of all the students register with the possablity to add new student to the list or delelte a student form the list
 
-<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602525701880.png" width="70%" height="70%">
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602541752.png" width="70%" height="70%">
 
 - display the students list
 
