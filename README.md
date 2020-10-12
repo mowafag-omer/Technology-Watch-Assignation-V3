@@ -54,37 +54,46 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 ```
 <br><br>
 
-### home.ejs
+### Students.ejs
 
-- The home page display first a general menu for access to other pages. Followed by another section displaying a welcome message. Next another section displays the two next tech-watch. And the final section displays the list of students they haven’t been assigned yet to a tech-watch.
+- The student list page displays an array with the name of all the students register with the possablity to add new student to the list or delelte a student form the list
 
-<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602523762292.png" width="70%" height="70%">
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602525701880.png" width="70%" height="70%">
 
-- display the two next tech-watch
+- display the students list
 
 ``` 
-<section id="nextTech">
-<% techData.forEach(function(tech){ %>
-  <div>
-    <h4><%= tech.subject %></h4>
-    <p>
-      <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
-      <span><b>When:</b> <%= tech.deadline %></span>
-    </p>
-  </div>
-<% }) %>
+ <section id="list">
+  <h3>List of students</h3>
+  <ul>
+    <% data.forEach(function(object){ %>
+      <li><%= object.name %></li>
+    <% }) %>
+  </ul>
 </section>
 ``` 
    
-- display the list of students they haven’t been assigned yet to a tech-watch
+- Add a new student to the list by submiting the form to "/addStudent" route
    
 ``` 
-<section id="students">
-<h4>List of students they will must do a tech-watch soon:</h4>
-<ul>
-  <% data.forEach(function(object){ %>
-    <li>- <%= object.name %></li>
-  <% }) %>
-</ul>
-</section>
+<form method="POST" action="/addStudent">
+  <label for="addName"><b>Add student:</b> </label>
+  <input type="text" id="addName" name="name" required>
+  <input type="submit" value="Add student">
+</form>
+```
+
+- delete a student from the list by submiting the form to "/deleteStudent" route
+   
+``` 
+<form method="POST" action="/deleteStudent">
+  <label for="sname"><b>Delete student:</b> </label>
+  <select name="dname">
+    <option value="name1">-----</option>
+    <% data.forEach(function(object){ %>
+      <option value="<%= object._id %>"><%= object.name %></option>
+    <% }) %>
+  </select>
+  <input type="submit" value="Delete student">
+</form>
 ```
