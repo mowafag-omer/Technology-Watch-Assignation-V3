@@ -15,7 +15,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 * [Home](#home)
 * [Students](#Students)
 * [Tech-watch](#Tech-watch)
-* [Client-side](#Client-side)
+* [Tech-Watch History](#Tech-Watch History)
 * [Server-side](#Client-side)
 <br><br>
 
@@ -102,21 +102,82 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 ```
 <br><br>
 
+### Tech-Watch History
+
+- Tech watch assignation page (Assignation.ejs) display all the next tech watch registered in the first section. This form is composed by three fields. First one is the subject of the tech-watch; second one the deadline and last one the number of students they will participate to this tech-watch.
+
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602543326000.png" width="70%" height="70%">
+
+- Display all the next tech watch
+
+``` 
+<section id="nextTech">
+  <h4>Next Tech-Watch</h4>
+  <% techData.forEach(function(tech){ %>
+    <div>
+      <h4><%= tech.subject %></h4>
+      <p>
+        <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+        <span><b>When:</b> <%= tech.deadline %></span>
+      </p>
+    </div>
+  <% }) %>
+</section>
+``` 
+
+- Add new tech-watch with number of students and the deadline
+
+``` 
+<section id="addTech">
+  <form method="POST" action="/createGroupe">
+    <label for="sbj"><b>Subject:</b> </label>
+    <input type="text" name="subj" id="sbj" required>
+    <label for="ddln"><b>Deadline:</b> </label>
+    <input type="date" name="dline" id="ddln" required>
+    <label for="stdtNum"><b>Number students:</b> </label>
+    <input type="number" name="mmbr" id="stdtNum" required>
+    <input type="submit" value="Create Tech-watch">
+  </form>
+</section>
+``` 
+
+<br><br>
+
 ### Tech-Watch
 
-- The student list page (Assignation.ejs) displays an array with the name of all the students register with the possablity to add new student to the list or delelte a student form the list
+- Tech watch assignation page (Assignation.ejs) display all the next tech watch registered in the first section. This form is composed by three fields. First one is the subject of the tech-watch; second one the deadline and last one the number of students they will participate to this tech-watch.
 
 <img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602541752.png" width="70%" height="70%">
 
-- display the students list
+- Display all the next tech watch
 
 ``` 
-<section id="list">
-  <h3>List of students</h3>
-  <ul>
-    <% data.forEach(function(object){ %>
-      <li><%= object.name %></li>
-    <% }) %>
-  </ul>
+<section id="nextTech">
+  <h4>Next Tech-Watch</h4>
+  <% techData.forEach(function(tech){ %>
+    <div>
+      <h4><%= tech.subject %></h4>
+      <p>
+        <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+        <span><b>When:</b> <%= tech.deadline %></span>
+      </p>
+    </div>
+  <% }) %>
+</section>
+``` 
+
+- Add new tech-watch with number of students and the deadline
+
+``` 
+<section id="addTech">
+  <form method="POST" action="/createGroupe">
+    <label for="sbj"><b>Subject:</b> </label>
+    <input type="text" name="subj" id="sbj" required>
+    <label for="ddln"><b>Deadline:</b> </label>
+    <input type="date" name="dline" id="ddln" required>
+    <label for="stdtNum"><b>Number students:</b> </label>
+    <input type="number" name="mmbr" id="stdtNum" required>
+    <input type="submit" value="Create Tech-watch">
+  </form>
 </section>
 ``` 
