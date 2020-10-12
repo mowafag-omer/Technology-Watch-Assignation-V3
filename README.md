@@ -15,7 +15,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 * [Home](#home)
 * [Students](#Students)
 * [Tech-watch](#Tech-watch)
-* [Tech-Watch History](#Tech-Watch History)
+* [Tech-Watch-history](#Tech-Watch-history)
 * [Server-side](#Client-side)
 <br><br>
 
@@ -143,18 +143,18 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 <br><br>
 
-### Tech-Watch
+### Tech-Watch-history
 
-- Tech watch assignation page (Assignation.ejs) display all the next tech watch registered in the first section. This form is composed by three fields. First one is the subject of the tech-watch; second one the deadline and last one the number of students they will participate to this tech-watch.
+- The history page is composed by two section. First one list of all next tech-watchs; the second one is the list of the previous tech-watchs.
 
 <img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602541752.png" width="70%" height="70%">
 
-- Display all the next tech watch
+- Display the next tech-watchs
 
 ``` 
-<section id="nextTech">
+<section id="nextTech" style="background: #fff;">
   <h4>Next Tech-Watch</h4>
-  <% techData.forEach(function(tech){ %>
+  <% next.forEach(function(tech){ %>
     <div>
       <h4><%= tech.subject %></h4>
       <p>
@@ -164,20 +164,22 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
     </div>
   <% }) %>
 </section>
-``` 
-
-- Add new tech-watch with number of students and the deadline
 
 ``` 
-<section id="addTech">
-  <form method="POST" action="/createGroupe">
-    <label for="sbj"><b>Subject:</b> </label>
-    <input type="text" name="subj" id="sbj" required>
-    <label for="ddln"><b>Deadline:</b> </label>
-    <input type="date" name="dline" id="ddln" required>
-    <label for="stdtNum"><b>Number students:</b> </label>
-    <input type="number" name="mmbr" id="stdtNum" required>
-    <input type="submit" value="Create Tech-watch">
-  </form>
+
+- Display all previous ones
+
+``` 
+<section id="prevTech">
+  <h4>Previous Tech-watch</h4>
+  <% prev.forEach(function(tech){ %>
+    <div>
+      <h4><%= tech.subject %></h4>
+      <p>
+        <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+        <span><b>When:</b> <%= tech.deadline %></span>
+      </p>
+    </div>
+  <% }) %>
 </section>
 ``` 
