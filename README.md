@@ -11,8 +11,9 @@ The aim of this project is to be able to create a list of students in one hand, 
 using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 ## contents
-* [Home](#Home)
 ### Client-side
+* [Home](#home.ejs)
+* [Home](#Students.ejs)
 * [Client-side](#Client-side)
 * [Server-side](#Client-side)
 <br><br>
