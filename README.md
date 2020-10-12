@@ -53,7 +53,6 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 </section>
 ```
 <br>
-
 ### Students.ejs
 
 - The student list page displays an array with the name of all the students register with the possablity to add new student to the list or delelte a student form the list
