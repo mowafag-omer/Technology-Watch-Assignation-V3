@@ -4,14 +4,11 @@
 ![](https://img.shields.io/badge/express.js-gray?logo=express.js)
 ![](https://img.shields.io/badge/mongodb-gray?logo=mongodb)
 ![](https://img.shields.io/badge/ejs-gray?logo=ejs)
-![](https://img.shields.io/badge/Bootstrap_vue-gray?logo=Bootstrap).
+![](https://img.shields.io/badge/scss-gray?logo=sass)
 
 
 The aim of this project is to be able to create a list of students in one hand, and in the other hand be able to randomly assign a chosen Topic to a students who weren't assigned yet to a Technology Watch (groups generator). A single page in which we can add both students and Technology Watch.
-using nodeJS and EJS for render an ejs template which : 
-- Render our two form; one for add a student and the other for add a technology-watch. 
-- Display the students registered and technology-watch assigned to a student.
-<br><br>
+using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 ## contents
 * [Home](#Home)
