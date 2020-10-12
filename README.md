@@ -1,36 +1,58 @@
 # Technology-Watch-Assignation-V3
 
 ![](https://img.shields.io/badge/node.js-gray?logo=node.js)
+![](https://img.shields.io/badge/express.js-gray?logo=express.js)
+![](https://img.shields.io/badge/mongodb-gray?logo=mongodb)
 ![](https://img.shields.io/badge/ejs-gray?logo=ejs)
 ![](https://img.shields.io/badge/Bootstrap_vue-gray?logo=Bootstrap).
 
 
-The aim of this project is to be able to create a list of students in one hand, and in the other hand be able to randomly assign a chosen Topic to a Student who wasn't assigned yet to a Technology Watch. A single page in which we can add both students and Technology Watch.
+The aim of this project is to be able to create a list of students in one hand, and in the other hand be able to randomly assign a chosen Topic to a students who weren't assigned yet to a Technology Watch (groups generator). A single page in which we can add both students and Technology Watch.
 using nodeJS and EJS for render an ejs template which : 
 - Render our two form; one for add a student and the other for add a technology-watch. 
 - Display the students registered and technology-watch assigned to a student.
 <br><br>
 
 ## contents
-* [Server-side](#Server-side)
+* [Home](##Home)
 * [Client-side](#Client-side)
 <br><br>
 
-## Server-side
-- node.js modules and view rendering function
-```js
-const http = require('http')
-const fs = require("fs")
-const ejs = require("ejs")
-const url = require('url')
-const { parse } = require('querystring')
+## Home
+- The home page display first a general menu for access to other pages. Followed by another section displaying a welcome message. Next another section displays the two next tech-watch. And the final section displays the list of students they haven’t been assigned yet to a tech-watch.
 
-const data = JSON.parse(fs.readFileSync('twdata.json'))
+### home.ejs
 
-const renderHTML = (content) => {
-  const template = fs.readFileSync(__dirname + '/views/index.ejs', 'utf8')
-  return tempRnd = ejs.render(template, {data: content})
-}
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602523762292.png" width="70%" height="70%">
+
+``` 
+<section id="wlcMsg">
+      <h2>Welcome tech-watch user</h2>
+      <p>On this page you could take a look to the next tech-watch we will assist. You can find witch students will have to do the next
+        presentation and when.</p>
+        <p>Also, as you can see, above this section there is a menu. This menu offer you diverse options like: take a look about the tech-watch we
+          had already assist; see the list of students availaible for do a tech-watch; a page for create the next tech-watch.</p>
+          <p>Don’t be shy and try to go on diverses part of the website !</p>
+    </section>
+    <section id="nextTech">
+      <% techData.forEach(function(tech){ %>
+        <div>
+          <h4><%= tech.subject %></h4>
+          <p>
+            <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+            <span><b>When:</b> <%= tech.deadline %></span>
+          </p>
+        </div>
+      <% }) %>
+    </section>
+    <section id="students">
+      <h4>List of students they will must do a tech-watch soon:</h4>
+      <ul>
+        <% data.forEach(function(object){ %>
+          <li>- <%= object.name %></li>
+        <% }) %>
+      </ul>
+    </section>
 ```
 - add student route; store data in ajson file
 ```js
