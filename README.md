@@ -16,44 +16,46 @@ using nodeJS and EJS for render an ejs template which :
 ## contents
 * [Home](#Home)
 * [Client-side](#Client-side)
+* [Server-side](#Client-side)
 <br><br>
 
-## Home
-- The home page display first a general menu for access to other pages. Followed by another section displaying a welcome message. Next another section displays the two next tech-watch. And the final section displays the list of students they haven’t been assigned yet to a tech-watch.
+## Client-side
 
 ### home.ejs
 
+- The home page display first a general menu for access to other pages. Followed by another section displaying a welcome message. Next another section displays the two next tech-watch. And the final section displays the list of students they haven’t been assigned yet to a tech-watch.
+
 <img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602523762292.png" width="70%" height="70%">
 
+- display the two next tech-watch
+
 ``` 
-<section id="wlcMsg">
-      <h2>Welcome tech-watch user</h2>
-      <p>On this page you could take a look to the next tech-watch we will assist. You can find witch students will have to do the next
-        presentation and when.</p>
-        <p>Also, as you can see, above this section there is a menu. This menu offer you diverse options like: take a look about the tech-watch we
-          had already assist; see the list of students availaible for do a tech-watch; a page for create the next tech-watch.</p>
-          <p>Don’t be shy and try to go on diverses part of the website !</p>
-    </section>
-    <section id="nextTech">
-      <% techData.forEach(function(tech){ %>
-        <div>
-          <h4><%= tech.subject %></h4>
-          <p>
-            <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
-            <span><b>When:</b> <%= tech.deadline %></span>
-          </p>
-        </div>
-      <% }) %>
-    </section>
-    <section id="students">
-      <h4>List of students they will must do a tech-watch soon:</h4>
-      <ul>
-        <% data.forEach(function(object){ %>
-          <li>- <%= object.name %></li>
-        <% }) %>
-      </ul>
-    </section>
+<section id="nextTech">
+<% techData.forEach(function(tech){ %>
+  <div>
+    <h4><%= tech.subject %></h4>
+    <p>
+      <span><b>Students affiliate:</b> <%= tech.group.join(' / ') %></span>
+      <span><b>When:</b> <%= tech.deadline %></span>
+    </p>
+  </div>
+<% }) %>
+</section>
+``` 
+   
+- display the list of students they haven’t been assigned yet to a tech-watch
+   
+``` 
+<section id="students">
+<h4>List of students they will must do a tech-watch soon:</h4>
+<ul>
+  <% data.forEach(function(object){ %>
+    <li>- <%= object.name %></li>
+  <% }) %>
+</ul>
+</section>
 ```
+
 - add student route; store data in ajson file
 ```js
 http.createServer(function (req, res,) {
