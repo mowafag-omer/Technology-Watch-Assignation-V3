@@ -12,15 +12,15 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 ## contents
 ### Client-side
-* [Home](#home.ejs)
-* [Home](#Students.ejs)
+* [Home](#home)
+* [Students](#Students.ejs)
 * [Client-side](#Client-side)
 * [Server-side](#Client-side)
 <br><br>
 
 ## Client-side
 
-### home.ejs
+### home
 
 - The home page display first a general menu for access to other pages. Followed by another section displaying a welcome message. Next another section displays the two next tech-watch. And the final section displays the list of students they haven’t been assigned yet to a tech-watch.
 
