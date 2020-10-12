@@ -52,7 +52,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 </ul>
 </section>
 ```
-<br><br>
+<br>
 
 ### Students.ejs
 
@@ -63,7 +63,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 - display the students list
 
 ``` 
- <section id="list">
+<section id="list">
   <h3>List of students</h3>
   <ul>
     <% data.forEach(function(object){ %>
@@ -97,3 +97,23 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
   <input type="submit" value="Delete student">
 </form>
 ```
+<br><br>
+
+### Students.ejs
+
+- The student list page displays an array with the name of all the students register with the possablity to add new student to the list or delelte a student form the list
+
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602525701880.png" width="70%" height="70%">
+
+- display the students list
+
+``` 
+<section id="list">
+  <h3>List of students</h3>
+  <ul>
+    <% data.forEach(function(object){ %>
+      <li><%= object.name %></li>
+    <% }) %>
+  </ul>
+</section>
+``` 
