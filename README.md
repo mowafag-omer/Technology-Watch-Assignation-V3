@@ -19,8 +19,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 ### Server-side
 * [App](#App)
 * [API](#API)
-
-<br><br>
+<br>
 
 ## Client-side
 
