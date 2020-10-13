@@ -147,7 +147,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 
 - The history page is composed by two section. First one list of all next tech-watchs; the second one is the list of the previous tech-watchs.
 
-<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602541752.png" width="70%" height="70%">
+<img src="https://github.com/mowafag-omer/Technology-Watch-Assignation-V3/blob/master/screenshots/1602543326000.png" width="70%" height="70%">
 
 - Display the next tech-watchs
 
