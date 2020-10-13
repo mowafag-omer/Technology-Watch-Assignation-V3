@@ -17,7 +17,7 @@ using nodeJS, MongoDB and EJS for render an ejs template <br><br>
 * [Tech-watch](#Tech-watch)
 * [Tech-Watch-history](#Tech-Watch-history)
 ### Server-side
-* [App](#App)
+* [Server](#App)
 * [API](#API)
 <br>
 
