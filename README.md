@@ -268,7 +268,7 @@ post('/createGroupe', async (req, res) => {
 })
 ``` 
 
-- Rendering home page and fetching data for the API
+- Rendering home page and fetching data from the API
 
 ``` 
 app.get('/', async (req, res) => {
